@@ -1,4 +1,6 @@
-package Homework07;
+/*
+ *关于继承和接口的练习
+ */
 
 class CreateAirConditionings extends AirConditioning{//继承最终空调抽象超类，重写抽象方法turnOn、turnOff
 
