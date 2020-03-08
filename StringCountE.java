@@ -20,7 +20,8 @@ public class StringCountE
 
 }
 
-class CountE{
+class CountE
+{
     int conutE(String a)//返回类型为int型，入参为字符串
     {
         int num = 0;        //num用于表示下标
