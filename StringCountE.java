@@ -1,9 +1,14 @@
-package HomeWork08;
+/*
+ *查看输入e的个数
+ */
 
 import java.util.Scanner;
 
-public class Test01 {
-    public static void main(String[] args) {
+public class StringCountE 
+{
+    public static void main(String[] args)
+    {
+        
         Scanner sc = new Scanner(System.in);
         CountE test = new CountE();
 
