@@ -1,12 +1,14 @@
-package HomeWork08;
+/*
+ *String中split方法的和强制类型转化的练习
+ *用来判断输入的IP地址是否合法
+ */
 
-public class Test05Tools {
-
-//--------------判断IP地址-------------
+public class JudgeIP 
+{
+    //--------------判断IP地址是否合法-------------
     public static boolean isIp(String ip) {
 
-        String[] split = ip.split("\\.");
-        //用'.'分割得到的字符串
+        String[] split = ip.split("\\."); //用'.'分割得到的字符串
 
         boolean flag = false;
         //talse：IP地址不合法，true：IP地址合法
@@ -28,27 +30,6 @@ public class Test05Tools {
 
         }
         return flag;  //返回flag
-    }
-
-
-    //--------------判断端口-------------
-    public static int checkPort(String port)
-    {
-        int i = Integer.parseInt(port);//还不会判断是不是整数类型，暂且这样写
-        if( i >= 1024 && i <= 65535)
-            return i;
-        else
-            return -1;
-    }
-
-
-    //--------------判断年龄-------------
-    public static int checkAge(int age)
-    {
-        if( age >= 16 && age <= 150)
-            return age;
-        else
-            return -1;
     }
 
 }
