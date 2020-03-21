@@ -16,12 +16,12 @@ import java.util.TimerTask;
 
 public class WhoGame extends JPanel {
     public static void main(String[] args) {
-     creatPanel();
+        creatPanel();
     }
 
     public static void creatPanel()
     {
-        JFrame jFrame = new JFrame();//画板
+        JFrame jFrame = new JFrame();//界面
 
         jFrame.setSize(340,100);//尺寸
         jFrame.setTitle("点名表");//标题
@@ -29,17 +29,17 @@ public class WhoGame extends JPanel {
         jFrame.setLocationRelativeTo(null);//居中对齐
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//关闭方式
 
-        WhoGame whoGame = new WhoGame();
-        whoGame.setLayout(null);
-        jFrame.add(whoGame);
+        WhoGame whoGame = new WhoGame();//画板
+        whoGame.setLayout(null);//非流动布局
+        jFrame.add(whoGame);//界面添加画板
 
+        //--------按钮和文本框部分的设置--------
         JButton start = new JButton("开始点名");
         start.setBounds(10,20,100,40);
         JButton stop = new JButton("停止");
         stop.setBounds(230,20,100,40);
 
         JTextField name = new JTextField();
-//        textField.setVisible(true);
         name.setBounds(120,20,100,40);
 
         whoGame.add(start);
@@ -55,11 +55,11 @@ public class WhoGame extends JPanel {
 
                 JButton source = (JButton)e.getSource();//获取事件源
 
-                if(source.getText().equals("开始点名"))
+                if(source.getText().equals("开始点名"))//判断具体事件源
                 {
                     timer = new Timer();//创建一个新的事件
 
-                    TimerTask task = new TimerTask() {
+                    TimerTask task = new TimerTask() { //定时任务
                         @Override
                         public void run() {
                             name.setText(getWhoSName());//获取一个String类型的getWhoSName
@@ -70,16 +70,16 @@ public class WhoGame extends JPanel {
                 }
                 else if(source.getText().equals("停止"))
                 {
-                     try {
-                         timer.cancel();
-                     }catch (NullPointerException e1) {//异常处理
+                    try {
+                        timer.cancel();
+                    }catch (NullPointerException e1) {//异常处理
                         name.setText("点名还未开始");
-                     }
+                    }
                 }
             }
         };
 
-        start.addMouseListener(mouseAdapter);
+        start.addMouseListener(mouseAdapter);//为按钮添加事件
         stop.addMouseListener(mouseAdapter);
 
         jFrame.setVisible(true);//可视化
